@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koffe Business</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <header>
+        <h1>Welcome to Koffe</h1>
+        <nav>
+            <ul>
+                <li><a href="#" id="home-link">Home</a></li>
+                <li><a href="#" id="products-link">Products</a></li>
+                <li><a href="#" id="contact-link">Contact</a></li>
+                <li><a href="#" id="feedback-link">Feedback</a></li> <!-- New Link -->
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Your Favorite Coffee, Delivered Fresh</h2>
+    </section>
+
+    <section id="home-content" class="home-content">
+        <h2>Why Choose Koffe?</h2>
+        <p>Di Koffe, kami percaya bahwa secangkir kopi yang enak dapat mencerahkan hari siapa pun. Kami mendapatkan biji kopi kami dari perkebunan terbaik di seluruh dunia, memastikan bahwa setiap cangkir yang Anda seduh memiliki kualitas terbaik. Apakah Anda seorang penikmat kopi atau hanya seseorang yang menikmati minuman hangat yang enak, Koffe memiliki sesuatu untuk Anda.</p>
+        
+        <div class="features">
+            <div class="feature-item">
+                <h3>Freshly Roasted</h3>
+                <p>Our coffee beans are roasted daily to ensure maximum freshness.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Eco-Friendly Packaging</h3>
+                <p>We use sustainable packaging materials to reduce our environmental impact.</p>
+            </div>
+            <div class="feature-item">
+                <h3>Global Delivery</h3>
+                <p>No matter where you are, we'll deliver fresh coffee to your doorstep.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="products-section" class="products" style="display: none;">
+        <h2>Our Products</h2>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="Avocado-Coffee-Shake.jpg" alt="Coffee 1">
+                <h3>Coffee A</h3>
+                <p>Delicious coffee with a rich aroma.</p>
+            </div>
+            <div class="product-item">
+                <img src="cappuccino.jpg" alt="Coffee 2">
+                <h3>Coffee B</h3>
+                <p>Perfect blend for a perfect day.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact-section" class="contact" style="display: none;">
+        <h2>Contact Us</h2>
+        <p>If you have any questions or would like to know more about our products, feel free to get in touch with us using the form below.</p>
+        
+        <form id="contact-form" action="https://formspree.io/f/xanwpddk" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+            
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+            
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <section id="feedback-section" class="feedback" style="display: none;">
+        <h2>Feedback</h2>
+        <p>We value your feedback. Please let us know how we can improve by filling out the form below.</p>
+        <!-- Embed Google Form -->
+        <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSf6tHgQlZiGUi3gvaDlFiWO9918xytBDRw0Q58DxOBOSkxE3Q/viewform?usp=sf_link" width="640" height="480" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Koffe. All rights reserved.</p>
+    </footer>
+
+    <!-- Notification button and message -->
+    <button id="notification-button">Show Notification</button>
+    <div id="notification-message" style="display: none;">
+        <p>Website ini belum semaksimal mungkin masih tahap pengerjaan oleh seorang web developer. Saya Liano. Terimakasih atas kunjungan anda pada website ini.</p>
+        <button id="close-notification">Close</button>
+    </div>
+
+    <!-- Notification bell icon -->
+    <div id="notification-bell" class="bell">
+        <div class="bell-icon"></div>
+    </div>
+
+    <script>
+        document.getElementById('products-link').addEventListener('click', function() {
+            document.getElementById('products-section').style.display = 'block';
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('contact-section').style.display = 'none';
+            document.getElementById('feedback-section').style.display = 'none'; // Hide feedback
+        });
+
+        document.getElementById('home-link').addEventListener('click', function() {
+            document.getElementById('home-content').style.display = 'block';
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('contact-section').style.display = 'none';
+            document.getElementById('feedback-section').style.display = 'none'; // Hide feedback
+        });
+
+        document.getElementById('contact-link').addEventListener('click', function() {
+            document.getElementById('contact-section').style.display = 'block';
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('feedback-section').style.display = 'none'; // Hide feedback
+        });
+
+        document.getElementById('feedback-link').addEventListener('click', function() {
+            document.getElementById('feedback-section').style.display = 'block';
+            document.getElementById('products-section').style.display = 'none';
+            document.getElementById('home-content').style.display = 'none';
+            document.getElementById('contact-section').style.display = 'none'; // Hide contact
+        });
+
+        document.getElementById('notification-button').addEventListener('click', function() {
+            document.getElementById('notification-message').style.display = 'block';
+        });
+
+        document.getElementById('close-notification').addEventListener('click', function() {
+            document.getElementById('notification-message').style.display = 'none';
+        });
+
+        document.getElementById('notification-bell').addEventListener('click', function() {
+            document.getElementById('notification-message').style.display = 'block';
+        });
+    </script>
+</body>
+</html>
