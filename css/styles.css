@@ -488,3 +488,46 @@ button:hover {
     height: 500px;
     border: none;
 }
+}
+.product-item img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-item img:hover {
+    transform: scale(1.1) translateX(10px);
+}
+body {
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.light-mode {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.dark-mode {
+    background-color: #121212;
+    color: #ffffff;
+}
+
+header, footer {
+    background-color: inherit;
+    color: inherit;
+}
+
+nav ul {
+    background-color: inherit;
+}
+
+nav ul li a {
+    color: inherit;
+}
+
+.product-item img {
+    transition: transform 0.3s ease-in-out;
+}
+
+.product-item img:hover {
+    transform: scale(1.1) translateX(10px);
+}
+
