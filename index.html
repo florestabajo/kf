@@ -27,11 +27,23 @@
         }
 
         nav ul {
+            display: flex;
+            justify-content: space-around;
+            padding: 0;
+            list-style-type: none;
             background-color: inherit;
         }
 
         nav ul li a {
             color: inherit;
+            text-decoration: none;
+            padding: 10px 20px;
+            transition: background-color 0.3s;
+        }
+
+        nav ul li a:hover {
+            background-color: #555;
+            border-radius: 5px;
         }
 
         .product-item img {
@@ -41,16 +53,26 @@
         .product-item img:hover {
             transform: scale(1.1) translateX(10px);
         }
+
+        /* Tombol navigasi */
+        nav ul li {
+            margin: 5px;
+        }
+
+        nav ul li a {
+            font-size: 18px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
     <header>
-        <h1>Welcome to Koffe</h1>
+        <h1>Selamat Datang Diwebsite Kopi</h1>
         <nav>
             <ul>
                 <li><a href="#" id="home-link">Home</a></li>
-                <li><a href="#" id="products-link">Products</a></li>
-                <li><a href="#" id="contact-link">Contact</a></li>
+                <li><a href="#" id="products-link">Produk</a></li>
+                <li><a href="#" id="contact-link">Kontak</a></li>
                 <li><a href="#" id="feedback-link">Feedback</a></li>
             </ul>
         </nav>
@@ -81,19 +103,30 @@
     </section>
 
     <section id="products-section" class="products" style="display: none;">
-        <h2>Our Products</h2>
+        <h2>Produk kami</h2>
         <div class="product-list">
             <div class="product-item">
                 <img src="Avocado-Coffee-Shake.jpg" alt="Coffee 1">
-                <h3>Coffee A</h3>
-                <p>Delicious coffee with a rich aroma.</p>
+                <h3>Avocado-Coffee-Shake</h3>
+                <p>Kopi lezat dengan aroma yang kaya.</p>
             </div>
             <div class="product-item">
                 <img src="cappuccino.jpg" alt="Coffee 2">
-                <h3>Coffee B</h3>
-                <p>Perfect blend for a perfect day.</p>
+                <h3>Top Coffee Cappuccino</h3>
+                <p>Perpaduan sempurna untuk hari yang sempurna.</p>
             </div>
         </div>
+        <div class="product-list">
+            <div class="product-item">
+                <img src="Koffe Jahe.jpg" alt="Coffee 1">
+                <h3>Kopi Jahe</h3>
+                <p>rasa jahe yang sempurna membuat tenggorokan menjadi segar</p>
+            </div>
+            <div class="product-item">
+                <img src="coccolatos.jpg" alt="Coffee 2">
+                <h3>Coklat</h3>
+                <p>Rasa coklat yang bikin harimu makin menyenangkan</p>
+            </div>
     </section>
 
     <section id="contact-section" class="contact" style="display: none;">
@@ -187,8 +220,38 @@
             }
         });
 
-        // Default mode saat halaman pertama kali dibuka
-        document.body.classList.add('light-mode');
+        // Menyimpan preferensi mode gelap/terang ke local storage
+        function setModePreference(isDarkMode) {
+            localStorage.setItem('isDarkMode', isDarkMode);
+        }
+
+        // Mendapatkan preferensi mode gelap/terang dari local storage
+        function getModePreference() {
+            return localStorage.getItem('isDarkMode') === 'true';
+        }
+
+        // Mengatur mode berdasarkan preferensi
+        function applyModePreference() {
+            const isDarkMode = getModePreference();
+            const body = document.body;
+            if (isDarkMode) {
+                body.classList.add('dark-mode');
+                body.classList.remove('light-mode');
+            } else {
+                body.classList.add('light-mode');
+                body.classList.remove('dark-mode');
+            }
+        }
+
+        // Panggil fungsi untuk mengatur mode saat halaman dimuat
+        applyModePreference();
+
+        // Simpan preferensi mode saat tombol mode toggle diklik
+        document.getElementById('mode-toggle').addEventListener('click', function() {
+            const isDarkMode = document.body.classList.contains('dark-mode');
+            setModePreference(isDarkMode);
+        });
+
     </script>
 </body>
 </html>
